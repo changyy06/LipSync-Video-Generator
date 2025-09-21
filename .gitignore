@@ -205,7 +205,7 @@ downloads/
 # Audio/Video files in project root
 *.mp3
 *.wav
-*.mp4
+
 *.avi
 *.mov
 *.m4a
