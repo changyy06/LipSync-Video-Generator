@@ -67,6 +67,9 @@ https://github.com/user-attachments/assets/fadc19d9-6022-487c-8b30-d3fb8ef44e50
 - **AWS S3**: File storage and management
 - **Gooey.ai**: LipSync video generation
 
+## System Diagram
+<img width="1071" height="641" alt="gmah2025 drawio" src="https://github.com/user-attachments/assets/8f442ae2-29ee-4717-912a-3b12c0df16ae" />
+
 ## 📋 Prerequisites
 
 ### System Requirements
