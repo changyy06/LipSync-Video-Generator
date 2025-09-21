@@ -7,6 +7,14 @@ A comprehensive web application that combines multiple AI services to create pro
 ![AWS](https://img.shields.io/badge/AWS-Bedrock%20%7C%20Transcribe%20%7C%20Translate-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+## 🎥 Demo
+
+Check out this example video generated using our AI LipSync technology:
+
+https://github.com/changyy06/LipSync-Video-Generator/assets/example.mp4
+
+*This video demonstrates the AI-powered lipsync generation capabilities of our application.*
+
 ## 🚀 Features
 
 ### Core AI Services
