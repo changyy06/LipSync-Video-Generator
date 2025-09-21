@@ -1,0 +1,6 @@
+requests
+flask==3.1.2
+werkzeug
+boto3
+googletrans==4.0.0rc1
+pytest

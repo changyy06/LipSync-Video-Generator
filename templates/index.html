@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LipSync Video Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 LipSync Video Generator</h1>
+            <p>Create stunning AI-powered lipsync videos with ease</p>
+            <p><strong>✨ Powered by AWS & OpenAI:</strong> Smart Transcription • Multi-Language Translation • AI Content Generation</p>
+        </header>
+
+        <!-- AWS Content Generation Section -->
+        <div class="section">
+            <h2>✨ AI Content Generation</h2>
+            <p class="section-description">Generate creative scripts and content using DeepSeek R1 AI model - perfect for video narration</p>
+            <div class="form-group">
+                <label for="contentPrompt">Content Prompt:</label>
+                <input type="text" id="contentPrompt" placeholder="e.g., Create a 30-second space exploration script" />
+                <button type="button" id="generateContentBtn" class="btn">✨ Generate Content</button>
+            </div>
+            <div id="contentResult" class="result-area"></div>
+        </div>
+
+        <!-- Translation Section -->
+        <div class="section">
+            <h2>🌍 Translation</h2>
+            <p class="section-description">Translate your content into multiple languages for global reach</p>
+            <div class="form-group">
+                <label for="translateText">Text to Translate:</label>
+                <textarea id="translateText" placeholder="Enter text to translate..."></textarea>
+                <select id="targetLanguage">
+                    <option value="es">🇪🇸 Spanish</option>
+                    <option value="fr">🇫🇷 French</option>
+                    <option value="de">🇩🇪 German</option>
+                    <option value="it">🇮🇹 Italian</option>
+                    <option value="pt">🇵🇹 Portuguese</option>
+                    <option value="ja">🇯🇵 Japanese</option>
+                    <option value="ko">🇰🇷 Korean</option>
+                    <option value="zh">🇨🇳 Chinese</option>
+                </select>
+                <button type="button" id="translateBtn" class="btn">🌍 Translate</button>
+            </div>
+            <div id="translateResult" class="result-area"></div>
+        </div>
+
+        <!-- Transcription Section -->
+        <div class="section">
+            <h2>🎵 Audio Transcription</h2>
+            <p class="section-description">Convert audio files to text using AWS Transcribe - perfect for creating scripts from recordings</p>
+            <div class="form-group">
+                <label for="audioFile">Audio File:</label>
+                <input type="file" id="audioFile" accept="audio/*" />
+                <button type="button" id="transcribeBtn" class="btn" style="display: none;">📝 Transcribe</button>
+            </div>
+            <div id="transcribeResult" class="result-area"></div>
+        </div>
+
+        <!-- Main LipSync Generation Section -->
+        <div class="section">
+            <h2>🎬 LipSync Video Generation</h2>
+            <p class="section-description">Create professional lipsync videos with your custom text and audio</p>
+            <form id="lipsyncForm">
+                <!-- Text Input -->
+                <div class="form-group">
+                    <label for="textPrompt">Text Prompt:</label>
+                    <textarea id="textPrompt" name="text_prompt" placeholder="Enter the text for your video..." required></textarea>
+                </div>
+
+                <!-- Audio Input Type -->
+                <div class="form-group">
+                    <label>Audio Source:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="audio_input_type" value="text" checked>
+                            Text-to-Speech
+                        </label>
+                        <label>
+                            <input type="radio" name="audio_input_type" value="audio">
+                            Upload Audio File
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Audio File Upload (hidden by default) -->
+                <div id="audioUploadSection" class="form-group" style="display: none;">
+                    <label for="audioInput">Audio File:</label>
+                    <input type="file" id="audioInput" name="input_audio" accept="audio/*">
+                </div>
+
+                <!-- Face Input Type -->
+                <div class="form-group">
+                    <label>Face Source:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="input_face_type" value="upload" checked>
+                            Upload Image
+                        </label>
+                        <label>
+                            <input type="radio" name="input_face_type" value="url">
+                            Image URL
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Face Image Upload -->
+                <div id="faceUploadSection" class="form-group">
+                    <label for="faceInput">Face Image:</label>
+                    <input type="file" id="faceInput" name="input_face" accept="image/*">
+                </div>
+
+                <!-- Face Image URL (hidden by default) -->
+                <div id="faceUrlSection" class="form-group" style="display: none;">
+                    <label for="faceUrl">Face Image URL:</label>
+                    <input type="url" id="faceUrl" name="input_face_url" placeholder="https://example.com/image.jpg">
+                </div>
+
+                <!-- API Key -->
+                <div class="form-group">
+                    <label for="apiKey">Gooey API API Key:</label>
+                    <input type="password" id="apiKey" name="api_key" placeholder="sk-..." required>
+                    <small>Get your API key from <a href="https://gooey.ai" target="_blank">gooey.ai</a></small>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="generateVideoBtn" class="btn btn-primary">
+                    🎬 Generate LipSync Video
+                </button>
+            </form>
+
+            <!-- Results -->
+            <div id="loadingSection" style="display: none;">
+                <p>⏳ Generating your lipsync video...</p>
+            </div>
+            
+            <div id="resultSection" class="result-area"></div>
+            <div id="errorSection" class="error-area"></div>
+        </div>
+
+        <footer>
+            <p>Powered by <a href="https://gooey.ai">Gooey AI</a> & AWS</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
