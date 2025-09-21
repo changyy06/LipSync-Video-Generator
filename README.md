@@ -366,12 +366,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **DeepSeek** for state-of-the-art reasoning models
 - **Flask** community for the excellent web framework
 
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/your-username/ai-lipsync-generator/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/ai-lipsync-generator/discussions)
-- **Email**: your-email@example.com
-
 ## 🗺️ Roadmap
 
 - [ ] Support for additional video formats
@@ -383,6 +377,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ by [Your Name]**
+**Made with ❤️ by changyy06**
 
 *Transform text into engaging lipsync videos with the power of AI*
