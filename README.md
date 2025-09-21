@@ -12,7 +12,7 @@ A comprehensive web application that combines multiple AI services to create pro
 Check out this example video generated using our AI LipSync technology:
 
 
-https://github.com/user-attachments/assets/80dd523b-dd48-4cb1-a506-4ddd7d59d1d1
+https://github.com/user-attachments/assets/fadc19d9-6022-487c-8b30-d3fb8ef44e50
 
 
 *This video demonstrates the AI-powered lipsync generation capabilities of our application - it plays automatically and loops for easy viewing.*
