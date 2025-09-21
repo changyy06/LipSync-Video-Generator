@@ -11,7 +11,7 @@ A comprehensive web application that combines multiple AI services to create pro
 
 Check out this example video generated using our AI LipSync technology:
 
-<video src="https://github.com/changyy06/LipSync-Video-Generator/raw/main/example.mp4" controls width="100%" autoplay muted loop>
+<video src="https://github.com/changyy06/LipSync-Video-Generator/example.mp4" controls width="100%" autoplay muted loop>
   Your browser does not support the video tag.
 </video>
 
